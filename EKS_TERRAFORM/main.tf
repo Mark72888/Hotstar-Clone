@@ -38,11 +38,7 @@ resource "aws_eks_cluster" "example" {
   role_arn = aws_iam_role.example.arn
 
   vpc_config {
-    subnet_ids = [
-      "subnet-07b96129b6ee384ad",  # Subnet in AZ1
-      "subnet-003e2aebb4ab5fa87",  # Subnet in AZ2
-      # Add more subnets if needed
-    ]
+    subnet_ids = data.aws_subnets.public.ids
   }
 }
 
