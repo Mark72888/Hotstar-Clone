@@ -42,13 +42,12 @@ resource "aws_eks_cluster" "example" {
       "subnet-003e2aebb4ab5fa87",  # Subnet in AZ1
       "subnet-07b96129b6ee384ad",  # Subnet in AZ2
  ]
-
+}
   # Ensure that IAM Role permissions are created before and deleted after EKS Cluster handling.
   # Otherwise, EKS will not be able to properly delete EKS managed EC2 infrastructure such as Security Groups.
   depends_on = [
     aws_iam_role_policy_attachment.example-AmazonEKSClusterPolicy,
    ]
-  }
 }
 
 resource "aws_iam_role" "example1" {
