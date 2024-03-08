@@ -47,7 +47,8 @@ resource "aws_eks_cluster" "example" {
   # Otherwise, EKS will not be able to properly delete EKS managed EC2 infrastructure such as Security Groups.
   depends_on = [
     aws_iam_role_policy_attachment.example-AmazonEKSClusterPolicy,
-  ]
+   ]
+  }
 }
 
 resource "aws_iam_role" "example1" {
