@@ -100,12 +100,6 @@ resource "aws_eks_node_group" "example" {
     aws_iam_role_policy_attachment.example-AmazonEC2ContainerRegistryReadOnly,
   ]
 }
-
-resource "aws_iam_role" "example" {
-  name               = "eks-cluster-cloud"
-  assume_role_policy = data.aws_iam_policy_document.assume_role.json
-}
-
 resource "aws_iam_role_policy_attachment" "example-AmazonEKSClusterPolicy" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"
   role       = aws_iam_role.example.name
